@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#039BE6</color>
+    <color name="colorPrimaryDark">#1CABF0</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="Black">#FF000000</color>
+    <color name="White">#FFFFFFFF</color>
+    <color name="Orange">#FFFF831C</color>
+    <color name="Green">#0f0</color>
+    <color name="Red">#FFC90000</color>
+    <color name="Gray">#FF969696</color>
+    <color name="Common_Background">#FFDCDCDC</color>
+    <color name="Gray_Line">#FFC0C0C0</color>
+    <color name="transparent">#9000</color>
+    <color name="setting_background">#fff2f2f2</color>
+    <color name="preference_primary_text">#ff000000</color>
+    <color name="Blue">#ff61a8ff</color>
+    <color name="lily_white">#EBEBEB</color>
+    <color name="color_6b6b6b">#6B6B6B</color>
+    <color name="gray_blue">#bdeadc</color>
+    <color name="_grey_605E5C">#ff605e5c</color>
+    <color name="f5f5f5">#f5f5f5</color>
+
+    <drawable name="red">#f00</drawable>
+    <drawable name="green">#0f0</drawable>
+    <drawable name="gray">#ccc</drawable>
+    <drawable name="white">#ffffff</drawable>
+    <drawable name="color_6b6b6b">#6B6B6B</drawable>
+
+
+
+    <color name="bontonBleu">#2169c0</color>
+    <color name="textBlanc">#fff</color>
+
+
+    <color name="colorSpalshStart">#FFF</color>
+    <color name="colorSplashEnd">#DFDCDC</color>
+    <color name="btnStartColor">#0C61AB</color>
+    <color name="btnEndColor">#10539E</color>
+    <color name="colorEditTextBg">#10539E</color>
+
+
+    <color name="primaryDark">#292b3d</color>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
+
+
+<!--GESTION DES MENUS-->
+    <color name="backgroundcolor">#fcfcfc</color>
+    <color name="lightgray">#ededed</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="darkblue">#23283a</color>
+    <color name="testcolorblue">#152b38</color>
+    <color name="pink">#fe104d</color>
+    <color name="black_overlay">#66000000</color>
+
+
+
+
+    <color name="bgColorStandard">#039BE5</color>
+    <color name="textColorStandard">#262626</color>
+    <color name="textColorGreen">#40d054</color>
+    <color name="textColorGray">#808080</color>
+    <color name="textColorBlack">#000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="colorRipple">#A9A9F5</color>
+    <color name="red">#f80000</color>
+
+    <color name="textColorGray1">#EEEDED</color>
+    <color name="yellow">#ffae03</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#39d1ba</color>
+    <color name="dot_dark_screen2">#14a895</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#8de7f9</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+    </array>
+</resources>

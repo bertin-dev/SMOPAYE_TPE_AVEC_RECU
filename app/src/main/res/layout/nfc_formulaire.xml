@@ -1,0 +1,195 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlebar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/nfc_open_btn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_number_violet_shape"
+                android:text="@string/nfc_open_text" />
+
+            <Button
+                android:id="@+id/nfc_check_btn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_number_violet_shape"
+                android:text="@string/nfc_check_text" />
+
+            <TextView
+                android:id="@+id/textview_uid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nfc_card_data"
+                android:textColor="@color/color_6b6b6b" />
+
+            <EditText
+                android:id="@+id/nfc_uid_data"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:textColor="@color/color_6b6b6b" />
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/nom"
+                    android:hint="Nom"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/prenom"
+                    android:hint="Prenom"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/datenaiss"
+                    android:hint="Date de naissance"
+                    android:inputType="date"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tel"
+                    android:hint="Téléphone"
+                    android:layout_margin="10dp"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cni"
+                    android:hint="CNI"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/numCarte"
+                    android:hint="Numéro de carte"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/numCarte2"
+                    android:hint="Numéro de carte"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#000"
+                    android:inputType="textPassword"/>
+
+
+
+            </LinearLayout>
+
+            <!-- INCREMENT/DECREMENT  -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEnregistrer"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/Enregister"></Button>
+
+                <Button
+                    android:id="@+id/btnAnnuler"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/Annuler"></Button>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/readValueBtn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_number_violet_shape"
+                android:text="@string/read_value" />
+
+            <TextView
+                android:id="@+id/textViewValueData"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_6b6b6b" />
+
+
+            <Button
+                android:id="@+id/nfc_close_btn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_number_violet_shape"
+                android:text="@string/nfc_close_text" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

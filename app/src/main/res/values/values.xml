@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ShowHidePasswordEditText"><attr format="integer" name="drawable_hide"/><attr format="integer" name="drawable_show"/><attr format="color" name="tint_color"/><attr format="dimension" name="additionalTouchTargetSize"/></declare-styleable>
+    <string name="app_name1">Show Hide Password Edit Text library</string>
+    <string name="define_showhidepasswordedittext"/>
+    <string name="library_showhidepasswordedittext_author">Scott Alexander-Bown</string>
+    <string name="library_showhidepasswordedittext_authorWebsite">alexander-bown.com</string>
+    <string name="library_showhidepasswordedittext_classPath">com.scottyab.showhidepasswordedittext</string>
+    <string name="library_showhidepasswordedittext_isOpenSource">true</string>
+    <string name="library_showhidepasswordedittext_libraryDescription">Show/Hide Password EditText is a very simple extension of Android\'s EditText that puts a clickable hide/show icon in the right hand side of the EditText that allows showing of the password. </string>
+    <string name="library_showhidepasswordedittext_libraryName">ShowHidePasswordEditText</string>
+    <string name="library_showhidepasswordedittext_libraryVersion">0.6</string>
+    <string name="library_showhidepasswordedittext_libraryWebsite">https://github.com/scottyab/showhidepasswordedittext</string>
+    <string name="library_showhidepasswordedittext_licenseId">apache_2_0</string>
+    <string name="library_showhidepasswordedittext_repositoryLink">https://github.com/scottyab/showhidepasswordedittext</string>
+</resources>
