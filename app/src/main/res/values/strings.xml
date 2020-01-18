@@ -1023,4 +1023,16 @@
     <string name="retraitOperateur">Retrait Chez un Opérateur</string>
     <string name="consulterUnite">Consulter Unités</string>
     <string name="typeSolde">Type de Solde : </string>
+
+
+    <string name="MsgConsulterHistorique">Consulter l\'Historique de vos transactions éffectuées.</string>
+    <string name="MsgDescTransfert">Veuillez insérer le numéro de compte du bénéficiaire et le montant à transférer, puis, appuyer sur effectuer.</string>
+    <string name="MsgDescAbonnement">Veuillez insérez votre numéro de compte et sélectionner l\'abonnement souhaité, puis valider.</string>
+    <string name="MsgDescRecharge">Veuillez insérer votre numéro de compte et le montant de recharge, puis, valider.</string>
+    <string name="MsgDescPayerFacture">Veuillez insérer le numéro de compte du bénéficiaire et le montant à transférer, puis valider.</string>
+    <string name="MsgDescDebitCarte">Veuillez saisir le montant puis appuyer sur passer la carte.</string>
+    <string name="MsgDescConsulterSolde">Veuillez insérer un numéro de compte et sélectionner le type de solde, puis appuyer sur consulter.</string>
+    <string name="MsgDescRetraitChezSmopaye">Veuillez insérer le numéro de compte du bénéficiaire et le montant à retirer, puis valider.</string>
+    <string name="MsgDescRetraitChezOperateur">Veuillez insérer votre numéro de compte puis suivre les étapes.</string>
+    <string name="MsgDescVerifierNumCarte">Veuillez insérer votre numéro de carte, puis appuyer sur passer la carte.</string>
 </resources>
