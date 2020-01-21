@@ -765,15 +765,15 @@
 
 
     <string name="montantAccumule">Montant accumulé</string>
-    <string name="rechargeMaCarte">Recharge ma Carte</string>
-    <string name="rechargeUneAutreCarte">Recharge d\'une autre Carte</string>
+    <string name="rechargeMaCarte">Recharge mon Compte</string>
+    <string name="rechargeUneAutreCarte">Recharge d\'un autre Compte</string>
     <string name="rechargeCommerciaux">Recharge pour Commerciaux</string>
 
-    <string name="numCarte">N° Carte</string>
-    <string name="votreNumCarte">Votre Numéro de Carte est :</string>
+    <string name="numCarte">N° Compte</string>
+    <string name="votreNumCarte">Votre Numéro de Compte est :</string>
 
 
-    <string name="numdelaCarte">Numéro de la Carte</string>
+    <string name="numdelaCarte">Numéro de Compte</string>
     <string name="consulter">Consulter</string>
 
     <string name="consultSoldeDeLaCarte">Consulter le solde de la carte</string>
@@ -820,16 +820,16 @@
 
 
     <string name="admin">Administrateur</string>
-    <string name="statutAdmin">Détenteur de carte</string>
+    <string name="statutAdmin">Détenteur de Compte</string>
     <string name="souscription">Souscription</string>
     <string name="gesComptes">Gestion comptes</string>
 
     <string name="gesAccepteur">Gestion Accepteurs</string>
     <string name="gesUserAgent">Gestion Utilisateurs et Agents</string>
     <string name="effectuer">éffectuer</string>
-    <string name="numdeCarte">Numéro de Carte</string>
-    <string name="numdeCarteDonataire">N° de carte donataire</string>
-    <string name="numdeCarteBeneficiaire">N° de carte bénéficiaire</string>
+    <string name="numdeCarte">Numéro de Compte</string>
+    <string name="numdeCarteDonataire">N° de Compte donataire</string>
+    <string name="numdeCarteBeneficiaire">N° de Compte bénéficiaire</string>
 
     <string name="apropos">Apropos</string>
     <string name="tuto">Tutorial</string>
@@ -840,13 +840,13 @@
     <string name="typeEtatStatut">Chauffeur</string>
 
     <string name="agents">Agents</string>
-    <string name="typeAgents">Détenteur de carte</string>
+    <string name="typeAgents">Détenteur de Compte</string>
 
     <string name="user">Utilisateur</string>
-    <string name="typeUser">Détenteur de carte</string>
+    <string name="typeUser">Détenteur de Compte</string>
 
 
-    <string name="subTitle">Recharge sa carte</string>
+    <string name="subTitle">Recharge son Compte</string>
     <string name="donataire">Donataire</string>
     <string name="nomDonataire">Modjo</string>
     <string name="beneficier">Bénéficier</string>
@@ -865,7 +865,7 @@
 
 
     <string name="accueilBottomNav">Accueil</string>
-    <string name="maCarteBottomNav">Ma Carte</string>
+    <string name="maCarteBottomNav">Mon Compte</string>
     <string name="pointSmopayeBottomNav">Point Smopaye</string>
     <string name="notificationBottomNav">Notifications</string>
 
@@ -910,7 +910,7 @@
     <string name="entrez_le_montant">Entrez le Montant</string>
 
 
-    <string name="dateExp">Date d\'expiration de la carte</string>
+    <string name="dateExp">Date d\'expiration du Compte</string>
     <string name="typeCarte">Type de carte</string>
     <string name="valeurCarte">Carte magnétique MA1</string>
     <string name="verouCarte">Verouiller la carte</string>
@@ -966,7 +966,7 @@
     <string name="Authentification">Authentification</string>
     <string name="typeAbonnement">Hebdomadaire</string>
     <string name="libelleAbonnementChoisi">Abonnement choisis</string>
-    <string name="libelleCarteAbonement">N° Carte</string>
+    <string name="libelleCarteAbonement">N° Compte</string>
     <string name="numCarteAbonement">12345678</string>
 
     <string name="VotreAbonnement">Votre Abonnement : </string>
