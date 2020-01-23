@@ -53,8 +53,22 @@
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:text=""
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnInprimer"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="#ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:textStyle="bold"
+                android:shadowDx="@android:integer/config_longAnimTime"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/imprimer" />
 
 
 

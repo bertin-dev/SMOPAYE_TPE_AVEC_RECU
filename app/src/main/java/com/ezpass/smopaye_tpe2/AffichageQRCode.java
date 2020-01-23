@@ -2,7 +2,9 @@ package com.ezpass.smopaye_tpe2;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,17 +12,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ezpass.smopaye_tpe2.Apropos.Apropos;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.ezpass.smopaye_tpe2.vuesUtilisateur.ModifierCompte;
+import com.telpo.tps550.api.TelpoException;
+import com.telpo.tps550.api.printer.UsbThermalPrinter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -28,11 +34,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Hashtable;
 
 public class AffichageQRCode extends AppCompatActivity {
 
     private ImageView qrcode;
     private TextView card_number;
+    private Button btnInprimer;
+    private String Result;
 
     String fil = "tmp_data_user";
     int c;
@@ -51,6 +60,7 @@ public class AffichageQRCode extends AppCompatActivity {
 
         card_number = (TextView) findViewById(R.id.card_number);
         qrcode = (ImageView) findViewById(R.id.qrcode);
+        btnInprimer = (Button) findViewById(R.id.btnInprimer);
 
 
         /////////////////////////////////LECTURE DES CONTENUS DES FICHIERS////////////////////
@@ -65,6 +75,9 @@ public class AffichageQRCode extends AppCompatActivity {
         }
 
         String[] parts = temp_.split("-");
+        String nom = parts[0]; //Nom
+        String prenom = parts[1]; //Prenom
+        String nom_prenom = nom + " " + prenom;
         String cardNumber = parts[10]; // 12345678
 
 
@@ -106,6 +119,72 @@ public class AffichageQRCode extends AppCompatActivity {
 
         // Display saved image uri to TextView
         card_number.setText(String.valueOf(carteCrypte));*/
+
+        btnInprimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        UsbThermalPrinter usbThermalPrinter = new UsbThermalPrinter(AffichageQRCode.this);
+                        try {
+                            //lOGO DE l'Entreprise
+                            usbThermalPrinter.start(1);
+                            usbThermalPrinter.reset();
+                            usbThermalPrinter.setMonoSpace(true);
+                            usbThermalPrinter.setGray(7);
+                            usbThermalPrinter.setAlgin(UsbThermalPrinter.ALGIN_MIDDLE);
+                            Bitmap bitmap4 = BitmapFactory.decodeResource(AffichageQRCode.this.getResources(), R.drawable.logo_moy);
+                            Bitmap bitmap5 = ThumbnailUtils.extractThumbnail(bitmap4, 244, 150);
+                            usbThermalPrinter.printLogo(bitmap5, true);
+
+                            usbThermalPrinter.setTextSize(30);
+                            usbThermalPrinter.addString("E-ZPASS");
+                            usbThermalPrinter.setAlgin(UsbThermalPrinter.ALGIN_LEFT);
+                            usbThermalPrinter.setTextSize(24);
+
+                            //QR CODE
+                            //usbThermalPrinter.start(1);
+                            Bitmap bitmap = CreateCode(carteCrypte, BarcodeFormat.QR_CODE, 384, 384);
+                            //usbThermalPrinter.reset();
+                            //usbThermalPrinter.setGray(7);
+                            usbThermalPrinter.setAlgin(UsbThermalPrinter.ALGIN_MIDDLE);
+                            usbThermalPrinter.printLogo(bitmap,true);
+
+                            //if(!nom_prenom.equals(""))
+                            usbThermalPrinter.addString(nom_prenom);
+
+
+                            //QR Date de génération
+                            /*SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                            Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+                            String str = formatter.format(curDate);
+                            usbThermalPrinter.setAlgin(UsbThermalPrinter.ALGIN_RIGHT);
+                            usbThermalPrinter.setTextSize(15);
+                            usbThermalPrinter.addString(str);*/
+
+                            usbThermalPrinter.printString();//permet d'imprimer le text
+                            usbThermalPrinter.walkPaper(10);
+                        } catch (TelpoException e) {
+                            e.printStackTrace();
+                            Result = e.toString();
+                            if (Result.equals("com.telpo.tps550.api.printer.NoPaperException")) {
+                                Toast.makeText(AffichageQRCode.this, "NoPaperException", Toast.LENGTH_SHORT).show();
+                            } else if (Result.equals("com.telpo.tps550.api.printer.OverHeatException")) {
+                                Toast.makeText(AffichageQRCode.this, "OverHeatException", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (WriterException e) {
+                            e.printStackTrace();
+                        } finally {
+                            usbThermalPrinter.stop();
+                        }
+
+                    }
+                }).start();
+                //Toast.makeText(QRCodeShow.this, "Indisponible", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -220,5 +299,28 @@ public class AffichageQRCode extends AppCompatActivity {
 
 
 
+    public Bitmap CreateCode(String str, com.google.zxing.BarcodeFormat type, int bmpWidth, int bmpHeight) throws WriterException {
+        Hashtable<EncodeHintType,String> mHashtable = new Hashtable<EncodeHintType,String>();
+        mHashtable.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+
+        BitMatrix matrix = new MultiFormatWriter().encode(str, type, bmpWidth, bmpHeight, mHashtable);
+        int width = matrix.getWidth();
+        int height = matrix.getHeight();
+
+        int[] pixels = new int[width * height];
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (matrix.get(x, y)) {
+                    pixels[y * width + x] = 0xff000000;
+                } else {
+                    pixels[y * width + x] = 0xffffffff;
+                }
+            }
+        }
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+
+        bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        return bitmap;
+    }
 
 }
