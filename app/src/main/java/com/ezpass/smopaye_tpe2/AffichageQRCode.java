@@ -239,7 +239,7 @@ public class AffichageQRCode extends AppCompatActivity {
     }
 
     //methode qui fonctionnement uniquement avec les versions inférieur à Android 7.0
-    public void startShare() {
+    private void startShare() {
         Bitmap bitmap = viewToBitmap(qrcode, qrcode.getWidth(), qrcode.getHeight());
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("image/*");
@@ -299,7 +299,7 @@ public class AffichageQRCode extends AppCompatActivity {
 
 
 
-    public Bitmap CreateCode(String str, com.google.zxing.BarcodeFormat type, int bmpWidth, int bmpHeight) throws WriterException {
+    private Bitmap CreateCode(String str, com.google.zxing.BarcodeFormat type, int bmpWidth, int bmpHeight) throws WriterException {
         Hashtable<EncodeHintType,String> mHashtable = new Hashtable<EncodeHintType,String>();
         mHashtable.put(EncodeHintType.CHARACTER_SET, "UTF-8");
 

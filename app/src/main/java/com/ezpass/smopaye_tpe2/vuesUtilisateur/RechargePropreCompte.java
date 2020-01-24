@@ -110,8 +110,8 @@ public class RechargePropreCompte extends AppCompatActivity {
     DialogInterface dialog;
 
     //SERVICES GOOGLE FIREBASE
-    APIService apiService;
-    FirebaseUser fuser;
+    /*APIService apiService;
+    FirebaseUser fuser;*/
 
      LinearLayout internetIndisponible, authWindows;
      Button btnReessayer;
@@ -145,8 +145,8 @@ public class RechargePropreCompte extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(RechargePropreCompte.this);
         //service google firebase
-        apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        /*apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
+        fuser = FirebaseAuth.getInstance().getCurrentUser();*/
 
         ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
         dbHandler = new DbHandler(this);
@@ -435,7 +435,7 @@ public class RechargePropreCompte extends AppCompatActivity {
 
                                /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                //SERVICE GOOGLE FIREBASE
-                               final String id_carte_sm = numCarte.getText().toString().trim();
+                               /*final String id_carte_sm = numCarte.getText().toString().trim();
 
                                Query query = FirebaseDatabase.getInstance().getReference("Users")
                                        .orderByChild("id_carte")
@@ -466,7 +466,7 @@ public class RechargePropreCompte extends AppCompatActivity {
                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                    }
-                               });
+                               });*/
 
 
                                //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -726,7 +726,7 @@ public class RechargePropreCompte extends AppCompatActivity {
     }
 
 
-    private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
+    /*private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
 
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
@@ -762,7 +762,7 @@ public class RechargePropreCompte extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 
     public void LocalNotification(String titles, String subtitles){

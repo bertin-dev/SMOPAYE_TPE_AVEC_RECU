@@ -66,9 +66,9 @@ public class Login extends AppCompatActivity {
 
 
     /*service google firebase*/
-    private FirebaseAuth auth;
+    /*private FirebaseAuth auth;
     private DatabaseReference reference;
-    private String verificationId;
+    private String verificationId;*/
 
     private String file = "tmp_number";
     private String file2 = "tmp_data_user";
@@ -176,7 +176,7 @@ public class Login extends AppCompatActivity {
         }
 
         //service google firebase
-        auth = FirebaseAuth.getInstance();
+        //auth = FirebaseAuth.getInstance();
         String tel = mNumeroTel.getEditText().getText().toString().trim();
         String pass = mPassword.getEditText().getText().toString().trim();
         //numéro provenant de la modification du compte
@@ -213,7 +213,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private void LoginGoogleFirebase(String email1, final String tel1, final String f1) {
+    /*private void LoginGoogleFirebase(String email1, final String tel1, final String f1) {
 
         auth.signInWithEmailAndPassword(email1, tel1)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -245,7 +245,7 @@ public class Login extends AppCompatActivity {
                         }
                     }
                 });
-    }
+    }*/
 
 
 
@@ -397,18 +397,38 @@ public class Login extends AppCompatActivity {
                                 else{
 
 
-                                    if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                                   /* if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                                         FirebaseAuth.getInstance().signOut();
-                                        /*Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        intent.putExtra("telephone", telephone);
-                                        intent.putExtra("resultatBD", f);
-                                        startActivity(intent);
-                                        finish();
-                                        return;*/
+                                        //intent.putExtra("telephone", telephone);
+                                        //intent.putExtra("resultatBD", f);
+                                        //startActivity(intent);
+                                        //finish();
+                                        //return;
                                     }
 
-                                    LoginGoogleFirebase("sm" + telephone + "@smopaye.cm", telephone, f);
+                                    LoginGoogleFirebase("sm" + telephone + "@smopaye.cm", telephone, f);*/
+
+
+                                    //-----------------------------------------NOUVELLE INTEGRATION-------------------------
+                                    /////////////////////////ECRIRE DANS LES FICHIERS/////////////////////////////////
+                                    try{
+                                        //ecrire donnée renvoyées par le web service lors de la connexion
+                                        FileOutputStream fOut2 = openFileOutput(file2, MODE_PRIVATE);
+                                        fOut2.write(f.getBytes());
+                                        fOut2.close();
+                                    } catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.putExtra("telephone", telephone);
+                                    intent.putExtra("resultatBD", f);
+                                    startActivity(intent);
+                                    finish();
+                                    //-----------------------------------------FIN-------------------------
 
 
                                 }
@@ -485,7 +505,7 @@ public class Login extends AppCompatActivity {
 
 
     /* -----------------------------------------------AUTHENTIFICATION VIA NUMERO DE TELEPHONE SOUS GOOGLE FIREBASE --(PAS UTILISE)-----------------------------------*/
-
+/*
 
     private void verifyCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
@@ -582,7 +602,7 @@ public class Login extends AppCompatActivity {
             Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     };
-
+*/
 
     /*-------------------------------------------------------------------------------FIN----------------------------------------------------------------*/
 

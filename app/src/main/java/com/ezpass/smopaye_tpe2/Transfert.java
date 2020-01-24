@@ -105,10 +105,10 @@ public class Transfert extends AppCompatActivity {
     private DateFormat shortDateFormat;
 
     //SERVICES GOOGLE FIREBASE
-    APIService apiService;
+    /*APIService apiService;
     FirebaseUser fuser;
     FirebaseUser firebaseUser;
-    DatabaseReference reference;
+    DatabaseReference reference;*/
 
     LinearLayout internetIndisponible, authWindows;
     Button btnReessayer;
@@ -141,8 +141,8 @@ public class Transfert extends AppCompatActivity {
         msgNetworkLimited = (TextView) findViewById(R.id.msgNetworkLimited);
 
         //service google firebase
-        apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        /*apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
+        fuser = FirebaseAuth.getInstance().getCurrentUser();*/
 
 
 
@@ -401,7 +401,7 @@ public class Transfert extends AppCompatActivity {
 
                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                 //SERVICE GOOGLE FIREBASE
-                                final String id_carte_sm = numCarteBeneficiaire.getText().toString().trim();
+                                /*final String id_carte_sm = numCarteBeneficiaire.getText().toString().trim();
 
                                 Query query = FirebaseDatabase.getInstance().getReference("Users")
                                         .orderByChild("id_carte")
@@ -432,7 +432,7 @@ public class Transfert extends AppCompatActivity {
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-                                });
+                                });*/
 
 
                                 //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -462,7 +462,7 @@ public class Transfert extends AppCompatActivity {
 
                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                 //SERVICE GOOGLE FIREBASE
-                                final String id_carte_sm = numCarteBeneficiaire.getText().toString().trim();
+                              /*  final String id_carte_sm = numCarteBeneficiaire.getText().toString().trim();
 
                                 Query query = FirebaseDatabase.getInstance().getReference("Users")
                                         .orderByChild("id_carte")
@@ -493,7 +493,7 @@ public class Transfert extends AppCompatActivity {
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-                                });
+                                });*/
 
 
                                 //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -697,7 +697,7 @@ public class Transfert extends AppCompatActivity {
     }
 
 
-    private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
+    /*private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
 
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
@@ -733,7 +733,7 @@ public class Transfert extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 
     public void LocalNotification(String titles, String subtitles){

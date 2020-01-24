@@ -113,8 +113,8 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
     private DateFormat shortDateFormat;
 
     //SERVICES GOOGLE FIREBASE
-    APIService apiService;
-    FirebaseUser fuser;
+    /*APIService apiService;
+    FirebaseUser fuser;*/
 
     LinearLayout internetIndisponible, authWindows;
     Button btnReessayer;
@@ -148,8 +148,8 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
 
 
         //service google firebase
-        apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        /*apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
+        fuser = FirebaseAuth.getInstance().getCurrentUser();*/
 
 
 
@@ -566,7 +566,7 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
                             if (pos >= 0) {
                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                 //SERVICE GOOGLE FIREBASE
-                                final String id_carte_sm = collectecarte.getText().toString().trim();
+                                /*final String id_carte_sm = collectecarte.getText().toString().trim();
 
                                 Query query = FirebaseDatabase.getInstance().getReference("Users")
                                         .orderByChild("id_carte")
@@ -596,7 +596,7 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-                                });
+                                });*/
 
 
                                 //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -629,7 +629,7 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
 
                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                 //SERVICE GOOGLE FIREBASE
-                                final String id_carte_sm = collectecarte.getText().toString().trim();
+                                /*final String id_carte_sm = collectecarte.getText().toString().trim();
 
                                 Query query = FirebaseDatabase.getInstance().getReference("Users")
                                         .orderByChild("id_carte")
@@ -659,7 +659,7 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-                                });
+                                });*/
 
 
                                 //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -865,7 +865,7 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
     }
 
 
-    private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String etat_notif){
+    /*private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String etat_notif){
 
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
@@ -901,7 +901,7 @@ public class RetraitAccepteur extends AppCompatActivity implements ModalDialogRe
 
             }
         });
-    }
+    }*/
 
 
     public void LocalNotification(String titles, String subtitles){

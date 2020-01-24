@@ -139,10 +139,10 @@ public class Souscription extends AppCompatActivity {
 
 
     //SERVICES GOOGLE FIREBASE
-    FirebaseAuth auth;
+    /*FirebaseAuth auth;
     DatabaseReference reference;
     APIService apiService;
-    FirebaseUser fuser;
+    FirebaseUser fuser;*/
 
 
     private String abonnement = "service", nom_prenom = "";
@@ -265,9 +265,9 @@ public class Souscription extends AppCompatActivity {
         msgNetworkLimited = (TextView) findViewById(R.id.msgNetworkLimited);
 
         //SERVICE GOOGLE FIREBASE
-        auth = FirebaseAuth.getInstance();
+        /*auth = FirebaseAuth.getInstance();
         apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        fuser = FirebaseAuth.getInstance().getCurrentUser();*/
 
 
 
@@ -577,10 +577,62 @@ public class Souscription extends AppCompatActivity {
                                                 int pos = f.toLowerCase().indexOf("success");
                                                 if (pos >= 0) {
 
-                                                    registerGoogleFirebase(nom.getText().toString().trim(), prenom.getText().toString().trim(),sexe.getSelectedItem().toString().trim(),
+                                                    /*registerGoogleFirebase(nom.getText().toString().trim(), prenom.getText().toString().trim(),sexe.getSelectedItem().toString().trim(),
                                                             telephone.getText().toString().trim(),  typePjustificative.getSelectedItem().toString().trim(), cni.getText().toString().trim(), statut.getSelectedItem().toString().trim(),
                                                             adresse.getText().toString().trim(), numCarte.getText().toString().trim(), typeChauffeur.getSelectedItem().toString().trim(),
-                                                            "sm" + telephone.getText().toString().trim() + "@smopaye.cm", telephone.getText().toString().trim(), "default", "offline" ,f);
+                                                            "sm" + telephone.getText().toString().trim() + "@smopaye.cm", telephone.getText().toString().trim(), "default", "offline" ,f);*/
+
+
+
+                                                    ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
+                                                    dbHandler = new DbHandler(getApplicationContext());
+                                                    dbUser = new DbUser(getApplicationContext());
+                                                    aujourdhui = new Date();
+                                                    shortDateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+
+                                                    //////////////////////////////////NOTIFICATIONS////////////////////////////////
+                                                    LocalNotification("Souscription", f);
+                                                    dbHandler.insertUserDetails("Souscription",f, "0", R.drawable.ic_notifications_black_48dp, shortDateFormat.format(aujourdhui));
+
+
+                                                    ////////////////////INSERTION DES DONNEES UTILISATEURS DANS LA BD LOCALE/////////////////////////
+                                                    dbUser.insertInfoUser(nom.getText().toString().trim(), prenom.getText().toString().trim(),sexe.getSelectedItem().toString().trim(),
+                                                            telephone.getText().toString().trim(), cni.getText().toString().trim(), statut.getSelectedItem().toString().trim(),
+                                                            adresse.getText().toString().trim(), numCarte.getText().toString().trim(), typeChauffeur.getSelectedItem().toString().trim(),
+                                                            "default", "offline" , abonnement, shortDateFormat.format(aujourdhui));
+
+
+                                                    String num_carte = numCarte.getText().toString().trim();
+
+                                                    View view = LayoutInflater.from(Souscription.this).inflate(R.layout.alert_dialog_success, null);
+                                                    TextView title = (TextView) view.findViewById(R.id.title);
+                                                    TextView statutOperation = (TextView) view.findViewById(R.id.statutOperation);
+                                                    ImageButton imageButton = (ImageButton) view.findViewById(R.id.image);
+                                                    title.setText(getString(R.string.information));
+                                                    imageButton.setImageResource(R.drawable.ic_check_circle_black_24dp);
+                                                    statutOperation.setText(f);
+                                                    build_error.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+
+                                                            Intent intent = new Intent(Souscription.this, QRCodeShow.class);
+                                                            intent.putExtra("id_carte", "E-ZPASS" +num_carte + getsecurity_keys());
+                                                            intent.putExtra("nom_prenom", nom_prenom);
+                                                            startActivity(intent);
+
+                                                        }
+                                                    });
+                                                    build_error.setCancelable(false);
+                                                    build_error.setView(view);
+                                                    build_error.show();
+
+                                                    nom.setText("");
+                                                    prenom.setText("");
+                                                    telephone.setText("");
+                                                    cni.setText("");
+                                                    adresse.setText("");
+                                                    numCarte.setText("");
+
                                                 } else{
 
                                                     ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
@@ -1104,7 +1156,7 @@ public class Souscription extends AppCompatActivity {
     }
 
 
-    private void registerGoogleFirebase(final String nom1, final String prenom1, final String sexe1,
+    /*private void registerGoogleFirebase(final String nom1, final String prenom1, final String sexe1,
                                         final String tel1, final String typePJ1, final String cni1, final String session1,
                                         final String adresse1, final String id_carte1, final String typeUser1,
                                         String email1, String password1, final String imageURL1, final String status1, final String f1)
@@ -1210,14 +1262,6 @@ public class Souscription extends AppCompatActivity {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
 
-                                            /*if(statut.getSelectedItem().toString().toLowerCase().equalsIgnoreCase("accepteur")){
-                                                Intent intent = new Intent(Souscription.this, QRCodeShow.class);
-                                                intent.putExtra("id_carte", num_carte);
-                                                intent.putExtra("nom_prenom", nom1 + " " + prenom1);
-                                                startActivity(intent);
-                                            } else {
-                                                return;
-                                            }*/
                                             Intent intent = new Intent(Souscription.this, QRCodeShow.class);
                                             intent.putExtra("id_carte", "E-ZPASS" +num_carte + getsecurity_keys());
                                             intent.putExtra("nom_prenom", nom_prenom);
@@ -1265,9 +1309,9 @@ public class Souscription extends AppCompatActivity {
                         }
                     }
                 });
-    }
+    }*/
 
-    private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
+    /*private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
 
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
@@ -1303,7 +1347,7 @@ public class Souscription extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 
     public void LocalNotification(String titles, String subtitles){

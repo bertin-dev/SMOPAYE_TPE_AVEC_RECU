@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DbHandler db;
     BottomBarTab nearby;
 
-    FirebaseUser fuser;
+    //FirebaseUser fuser;
     //DatabaseReference reference;
 
     @Override
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        //fuser = FirebaseAuth.getInstance().getCurrentUser();
         //reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
 
 

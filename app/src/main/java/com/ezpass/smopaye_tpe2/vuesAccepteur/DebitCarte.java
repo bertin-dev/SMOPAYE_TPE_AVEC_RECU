@@ -145,8 +145,8 @@ public class DebitCarte extends AppCompatActivity {
     String temp_number = "";
 
     //SERVICES GOOGLE FIREBASE
-    APIService apiService;
-    FirebaseUser fuser;
+    /*APIService apiService;
+    FirebaseUser fuser;*/
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -159,8 +159,8 @@ public class DebitCarte extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         //SERVICE GOOGLE FIREBASE
-        apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        /*apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
+        fuser = FirebaseAuth.getInstance().getCurrentUser();*/
 
         debitCarte = (Button) findViewById(R.id.btndebit);
         carte = (EditText) findViewById(R.id.debicarte);
@@ -453,7 +453,7 @@ public class DebitCarte extends AppCompatActivity {
 
                                                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                                                 //SERVICE GOOGLE FIREBASE
-                                                                final String id_carte_sm = carte.getText().toString().trim();
+                                                                /*final String id_carte_sm = carte.getText().toString().trim();
 
                                                                 Query query = FirebaseDatabase.getInstance().getReference("Users")
                                                                         .orderByChild("id_carte")
@@ -484,7 +484,7 @@ public class DebitCarte extends AppCompatActivity {
                                                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                                                     }
-                                                                });
+                                                                });*/
 
 
                                                                 ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
@@ -549,7 +549,7 @@ public class DebitCarte extends AppCompatActivity {
 
                                                                         /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                                                         //SERVICE GOOGLE FIREBASE
-                                                                        final String id_carte_sm = carte.getText().toString().trim();
+                                                                        /*final String id_carte_sm = carte.getText().toString().trim();
                                                                         final String nom1 = nom;
 
                                                                         Query query = FirebaseDatabase.getInstance().getReference("Users")
@@ -581,7 +581,7 @@ public class DebitCarte extends AppCompatActivity {
                                                                             public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                                                             }
-                                                                        });
+                                                                        });*/
 
                                                                         ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
                                                                         dbHandler = new DbHandler(getApplicationContext());
@@ -615,7 +615,7 @@ public class DebitCarte extends AppCompatActivity {
 
                                                                         /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                                                         //SERVICE GOOGLE FIREBASE
-                                                                        final String id_carte_sm = carte.getText().toString().trim();
+                                                                        /*final String id_carte_sm = carte.getText().toString().trim();
                                                                         final String nom1 = nom;
 
                                                                         Query query = FirebaseDatabase.getInstance().getReference("Users")
@@ -647,7 +647,7 @@ public class DebitCarte extends AppCompatActivity {
                                                                             public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                                                             }
-                                                                        });
+                                                                        });*/
 
                                                                         ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
                                                                         dbHandler = new DbHandler(getApplicationContext());
@@ -666,7 +666,7 @@ public class DebitCarte extends AppCompatActivity {
 
                                                                     /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                                                     //SERVICE GOOGLE FIREBASE
-                                                                    final String id_carte_sm = carte.getText().toString().trim();
+                                                                    /*final String id_carte_sm = carte.getText().toString().trim();
 
                                                                     Query query = FirebaseDatabase.getInstance().getReference("Users")
                                                                             .orderByChild("id_carte")
@@ -697,7 +697,7 @@ public class DebitCarte extends AppCompatActivity {
                                                                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                                                         }
-                                                                    });
+                                                                    });*/
 
                                                                     ////////////////////INITIALISATION DE LA BASE DE DONNEES LOCALE/////////////////////////
                                                                     dbHandler = new DbHandler(getApplicationContext());
@@ -1114,7 +1114,7 @@ public class DebitCarte extends AppCompatActivity {
         ////////////////////////////////////FIN NOTIFICATIONS/////////////////////
     }
 
-    private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
+    /*private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
 
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
@@ -1150,6 +1150,6 @@ public class DebitCarte extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 }

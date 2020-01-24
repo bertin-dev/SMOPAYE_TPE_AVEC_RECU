@@ -104,8 +104,8 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
     private DateFormat shortDateFormat;
 
     //SERVICES GOOGLE FIREBASE
-    APIService apiService;
-    FirebaseUser fuser;
+    /*APIService apiService;
+    FirebaseUser fuser;*/
 
     LinearLayout internetIndisponible, authWindows;
     Button btnReessayer;
@@ -139,8 +139,8 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
         msgNetworkLimited = (TextView) findViewById(R.id.msgNetworkLimited);
 
         //service google firebase
-        apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+       /* apiService = Client.getClient(ChaineConnexion.getAdresseURLGoogleAPI()).create(APIService.class);
+        fuser = FirebaseAuth.getInstance().getCurrentUser();*/
 
 
 
@@ -551,7 +551,7 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                 //SERVICE GOOGLE FIREBASE
 
-                                Query query = FirebaseDatabase.getInstance().getReference("Users")
+                                /*Query query = FirebaseDatabase.getInstance().getReference("Users")
                                         .orderByChild("id_carte")
                                         .equalTo(numCarte);
 
@@ -580,7 +580,7 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-                                });
+                                });*/
 
 
                                 //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -611,7 +611,7 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
                                 /////////////////////SERVICE GOOGLE FIREBASE CLOUD MESSAGING///////////////////////////
                                 //SERVICE GOOGLE FIREBASE
 
-                                Query query = FirebaseDatabase.getInstance().getReference("Users")
+                                /*Query query = FirebaseDatabase.getInstance().getReference("Users")
                                         .orderByChild("id_carte")
                                         .equalTo(numCarte);
 
@@ -640,7 +640,7 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-                                });
+                                });*/
 
 
                                 //////////////////////////////////NOTIFICATIONS LOCALE////////////////////////////////
@@ -737,7 +737,7 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
     }
 
 
-    private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
+    /*private void RemoteNotification(final String receiver, final String username, final String title, final String message, final String statut_notif){
 
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
@@ -773,7 +773,7 @@ public class PayerAbonnement extends AppCompatActivity implements PasswordModalD
 
             }
         });
-    }
+    }*/
 
 
     public void LocalNotification(String titles, String subtitles){
