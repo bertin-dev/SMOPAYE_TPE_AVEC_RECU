@@ -376,10 +376,13 @@ public class PayerFacture extends AppCompatActivity {
                     builder.appendQueryParameter("auth","Card");
                     builder.appendQueryParameter("login", "transfert");
                     builder.appendQueryParameter("CARDNDON", cardNumber);
-                    builder.appendQueryParameter("idTelephone", getSerialNumber().trim());
+                    //builder.appendQueryParameter("idTelephone", getSerialNumber().trim());
                     builder.appendQueryParameter("uniquser", numTelDonataire.getText().toString().trim());
                     builder.appendQueryParameter("CARDN", numCarteBeneficiaire.getText().toString().trim());
                     builder.appendQueryParameter("MONTANT", montantBeneficiaire.getText().toString().trim());
+
+                    builder.appendQueryParameter("fgfggergJHGS", ChaineConnexion.getEncrypted_password());
+                    builder.appendQueryParameter("uhtdgG18", ChaineConnexion.getSalt());
 
 
                     URL url = new URL(adresse+builder.build().toString());//"http://192.168.20.11:1234/recharge.php"
